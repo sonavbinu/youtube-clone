@@ -17,19 +17,38 @@ async function fetchVideos() {
       const thumbnail = video.snippet.thumbnails.medium.url;
 
       return `
-    <div class="video-card">
-    <a href="https://www.youtube.com/watch?v=${videoId} target="_blank"
-    <img src="${thumbnail}" alt="${title}" />
-    </a>
-    <div class="video-info">
-    <h3  class="video-title"> ${title}</h3>
-    <p class="channel-name">${channel}</p>
-    </div>
-    </div>
+      <div class="video-preview">
+        <div class="thumbnail-row">
+        <a href="https://www.youtube.com/watch?v=${videoId}" target="_blank">
+         <img class="thumbnail" src="${thumbnail}" alt=${thumbnail} />
+        </a>
+         
+          <div class="video-time">▶</div>
+        </div>
+        <div class="video-info-grid">
+          <div class="channel-picture">
+           ${channel[0].toUpperCase()}
+          </div>
+          <div class="video-info">
+            <p class="video-title">
+              ${title}
+            </p>
+            <p class="video-author">${channel}</p>
+            <p class="video-stats">Youtube Video</p>
+          </div>
+        </div>
+      </div>
+   
     
     `;
     })
     .join("");
 }
+
+document.querySelector(".search-bar").addEventListener("keyup", function (e) {
+  if (e.key === "Enter") {
+    fetchVideos(this.value);
+  }
+});
 
 fetchVideos();

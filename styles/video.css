@@ -2,7 +2,6 @@
   width: 100%;
 }
 .video-time {
-  background-color: black;
   color: white;
   position: absolute;
   bottom: 10px;
@@ -22,7 +21,15 @@
 }
 
 .channel-picture {
-  vertical-align: top;
+  vertical-align: middle;
+  background-color: black;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
 }
 
 .profile-picture {
@@ -51,9 +58,10 @@
   column-gap: 16px;
   row-gap: 14px;
 }
+
 @media (max-width: 800px) {
   .video-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
   }
 }
 @media (min-width: 801px) and (max-width: 999px) {
